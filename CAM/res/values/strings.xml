@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, OSGi4AndroidActivity!</string>
+    <string name="app_name">LoCCAM</string>
+
+    <!-- Api Bluetooth -->
+    <string name="timeout_message">Disconnected by timeout</string>
+    <string name="connection_lost_message">Device connection was lost</string>
+    <string name="unable_to_connect_message">Unable to connect device</string>
+
+</resources>

@@ -1,0 +1,11 @@
+Manifest-Version: 1
+Built-By: Andre
+Context-Provided: context.ambient.temperature
+Bundle-Activator: br.ufc.cac.activator.Activator
+Bundle-ManifestVersion: 2
+Bundle-Name: br.ufc.cac.ambienttemperature
+Bundle-SymbolicName: AmbientTemperatureCAC
+Bundle-Version: 2.0.0
+Export-Package: br.ufc.cac.activator,br.ufc.cac.impl
+Import-Package: android.content,android.util,android.hardware,br.ufc.loccam.isensor,br.ufc.loccam.ipublisher,br.ufc.loccam.iandroidcontextprovider,org.osgi.framework
+
