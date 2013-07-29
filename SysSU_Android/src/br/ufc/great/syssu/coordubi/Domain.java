@@ -410,9 +410,12 @@ public class Domain implements IDomain, ILocalDomain {
 				for (IReaction reaction : reactions.get(event)) {
 					if (tuple != null){
 						lastReaction = reaction;
-						if(tuple.matches(new Query(reaction.getPattern(), reaction.getJavaScriptFilter()))) {
-							reaction.react(tuple);
-						} else if(tuple.matches(new Query(reaction.getPattern(), reaction.getJavaFilter()))) {
+						
+						if(reaction.getJavaFilter() != null) {
+							if(tuple.matches(new Query(reaction.getPattern(), reaction.getJavaFilter()))) {
+								reaction.react(tuple);
+							}
+						} else if(tuple.matches(new Query(reaction.getPattern(), reaction.getJavaScriptFilter()))) {
 							reaction.react(tuple);
 						}
 					}
