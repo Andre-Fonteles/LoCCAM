@@ -12,13 +12,13 @@ import com.vividsolutions.jts.geom.Polygon;
 import br.ufc.great.syssu.base.Tuple;
 import br.ufc.great.syssu.base.interfaces.IFilter;
 
-public class PlaceFilter extends IFilter.Stub {
+public class PolygonFilter extends IFilter.Stub {
 
 	private GeometryFactory geometryFactory;
 	private List<Polygon> placesPolygon;
 	private Coordinate userCoordinate;
 	
-	public PlaceFilter(Coordinate[] polygonCoordinates) {
+	public PolygonFilter(Coordinate[] polygonCoordinates) {
 		placesPolygon = new ArrayList<Polygon>();
 		
 		geometryFactory = new GeometryFactory();
@@ -27,7 +27,7 @@ public class PlaceFilter extends IFilter.Stub {
 		placesPolygon.add(geometryFactory.createPolygon(linearRing, null));
 	}
 	
-	public PlaceFilter(List<Coordinate[]> polygonsCoordinates) {
+	public PolygonFilter(List<Coordinate[]> polygonsCoordinates) {
 		placesPolygon = new ArrayList<Polygon>();
 		geometryFactory = new GeometryFactory();
 		

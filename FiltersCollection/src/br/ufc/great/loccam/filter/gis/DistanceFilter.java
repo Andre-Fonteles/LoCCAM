@@ -11,15 +11,23 @@ public class DistanceFilter extends IFilter.Stub {
 
 	private float distance;
 	
-	private Location location;
+	private List<Location> locations;
 	
 	private Location userLocation;
 	
 	public DistanceFilter(double latitude, double longitude, float distance) {
-		this.location = new Location("");
+		this.distance = distance;
+
+		Location location = new Location("");
 		location.setLatitude(latitude);
 		location.setLongitude(longitude);
 		
+		locations = new ArrayList<Location>();
+		locations.add(location);
+	}
+	
+	public DistanceFilter(List<Location> locations, float distance) {
+		this.locations = locations;
 		this.distance = distance;
 	}
 	
@@ -43,11 +51,15 @@ public class DistanceFilter extends IFilter.Stub {
 			}
 		}
 		
-		System.out.println("DIST: " + location.distanceTo(userLocation));
+		boolean result = false;
 		
-		if(location.distanceTo(userLocation) <= distance)
-			return true;
-		else
-			return false;
+		for (Location location : locations) {
+			if(location.distanceTo(userLocation) <= distance) {
+				result = true;
+				break;
+			}
+		}
+		
+		return result;
 	}
 }
